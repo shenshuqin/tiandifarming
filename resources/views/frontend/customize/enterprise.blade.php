@@ -17,426 +17,6 @@
     <script src="../static/verdors/html5shiv/html5shiv.min.js"></script>
     <script src="../static/verdors/respond/respond.min.js"></script>
     <![endif]-->
-    {{--<style>--}}
-        {{--body {--}}
-            {{--/* min-height: 2000px; */--}}
-            {{--/*padding-top: 70px;*/--}}
-            {{--/* padding-bottom: 70px; */--}}
-            {{--/* padding-right: -20px; */--}}
-            {{--height: auto;--}}
-
-        {{--}--}}
-        {{--.nav_img{--}}
-            {{--/*margin-left: 50px;*/--}}
-            {{--float:left;--}}
-            {{--width:260px;--}}
-            {{--height: 70px;--}}
-        {{--}--}}
-        {{--.nav_container{--}}
-            {{--float:left;--}}
-            {{--/*margin-left: 160px;*/--}}
-
-        {{--}--}}
-        {{--.nav_word{--}}
-            {{--width:22%;--}}
-            {{--height: 35px;--}}
-            {{--float:left;--}}
-            {{--line-height: 35px;--}}
-            {{--text-align: center;--}}
-            {{--/*margin-left: 10px;*/--}}
-            {{--border-left:1px solid #ccc ;--}}
-            {{--margin-top: 20px;--}}
-            {{--/* border:1px solid red; */--}}
-        {{--}--}}
-        {{--.nav_foot{--}}
-            {{--float:left;--}}
-            {{--/*margin-left: 120px;*/--}}
-            {{--line-height: 80px;--}}
-        {{--}--}}
-        {{--.nav_foot .foot_img{--}}
-            {{--width:20px;--}}
-            {{--height: 20px;--}}
-            {{--margin-left: 8px;--}}
-        {{--}--}}
-        {{--.active_a{--}}
-            {{--margin-left: 250px;--}}
-            {{--/*padding-left: 20px;*/--}}
-            {{--text-align: center;--}}
-        {{--}--}}
-        {{--.nav a{--}}
-            {{--margin-right: 25px;--}}
-        {{--}--}}
-        {{--.header_main{--}}
-            {{--width:100%;--}}
-            {{--height: 48px;--}}
-        {{--}--}}
-        {{--.header_main{--}}
-
-            {{--position:relative;--}}
-        {{--}--}}
-        {{--.section2 .section2_title{--}}
-            {{--font-size: 25px;--}}
-            {{--width:20%;--}}
-            {{--height: 60px;--}}
-            {{--line-height: 60px;--}}
-            {{--/*border:1px solid red;*/--}}
-            {{--letter-spacing: 2px;--}}
-            {{--color: #8a6d3b;--}}
-        {{--}--}}
-        {{--.section2 .section2_content{--}}
-            {{--width:60%;--}}
-            {{--height: 200px;--}}
-            {{--/*border:1px solid red;*/--}}
-            {{--margin-top: 20px;--}}
-            {{--text-indent:25px;--}}
-            {{--font-size: 14px;--}}
-            {{--line-height: 20px;--}}
-            {{--color:#979797;--}}
-        {{--}--}}
-        {{--.section3{--}}
-            {{--width:100%;--}}
-            {{--height: 350px;--}}
-            {{--position:relative;--}}
-        {{--}--}}
-        {{--.section3 .section3_main{--}}
-            {{--color:#fff;--}}
-            {{--width:30%;--}}
-            {{--height: 300px;--}}
-            {{--position:absolute;--}}
-            {{--top:10%;--}}
-            {{--right:18%;--}}
-        {{--}--}}
-        {{--.section3 .section3_main div:nth-of-type(1){--}}
-            {{--width:100%;--}}
-            {{--height: 40px;--}}
-            {{--line-height: 40px;--}}
-            {{--font-size: 20px;--}}
-            {{--/*border:1px solid red;*/--}}
-        {{--}--}}
-        {{--.section3 .section3_main div:nth-of-type(2){--}}
-            {{--width:68%;--}}
-            {{--height: 160px;--}}
-            {{--font-size: 15px;--}}
-            {{--/*border:1px solid red;*/--}}
-            {{--margin-top: 20px;--}}
-        {{--}--}}
-        {{--.section3 .section3_main div:nth-of-type(3){--}}
-            {{--width:68%;--}}
-            {{--height: 60px;--}}
-            {{--font-size: 16px;--}}
-            {{--/*border:1px solid red;*/--}}
-            {{--margin-top: 20px;--}}
-        {{--}--}}
-        {{--.section4{--}}
-            {{--width:100%;--}}
-            {{--height: 1100px;--}}
-            {{--background-color: #F7F7F7;--}}
-            {{--margin-top: 20px;--}}
-        {{--}--}}
-        {{--.section4 .section4_title{--}}
-            {{--font-size: 25px;--}}
-            {{--color: #8a6d3b;--}}
-            {{--padding-top: 10px;--}}
-            {{--padding-bottom: 10px;--}}
-        {{--}--}}
-        {{--.section4 .section4_top{--}}
-            {{--width:67%;--}}
-            {{--height: 460px;--}}
-            {{--margin-top: 30px;--}}
-            {{--position: relative;--}}
-            {{--/*border:1px solid red;*/--}}
-        {{--}--}}
-        {{--.section4 .section4_top .top_img{--}}
-            {{--position:absolute;--}}
-            {{--top:0;--}}
-            {{--left: 0;--}}
-            {{--width:68%;--}}
-            {{--height: 460px;--}}
-        {{--}--}}
-        {{--.section4 .section4_top .top_right{--}}
-            {{--color:#fff;--}}
-            {{--width:28%;--}}
-            {{--height: 200px;--}}
-            {{--position:absolute;--}}
-            {{--top:20%;--}}
-            {{--right: 2%;--}}
-        {{--}--}}
-        {{--.section4 .section4_bottom{--}}
-            {{--width:67%;--}}
-            {{--height: 460px;--}}
-            {{--margin-top: 30px;--}}
-            {{--position: relative;--}}
-        {{--}--}}
-        {{--.section4 .section4_bottom .bottom_img{--}}
-            {{--position:absolute;--}}
-            {{--top:0;--}}
-            {{--left: 0;--}}
-            {{--width:68%;--}}
-            {{--height: 460px;--}}
-        {{--}--}}
-        {{--.section4 .section4_bottom .bottom_right{--}}
-            {{--color:#fff;--}}
-            {{--width:28%;--}}
-            {{--height: 200px;--}}
-            {{--position:absolute;--}}
-            {{--top:20%;--}}
-            {{--right: 2%;--}}
-        {{--}--}}
-        {{--.section5{--}}
-            {{--width:100%;--}}
-            {{--height: 700px;--}}
-            {{--/*border:1px solid red;*/--}}
-        {{--}--}}
-        {{--.section5 .section5_title{--}}
-            {{--font-size: 25px;--}}
-            {{--color: #8a6d3b;--}}
-            {{--margin-top: 10px;--}}
-            {{--margin-bottom: 10px;--}}
-        {{--}--}}
-        {{--.section5 .section5_word{--}}
-            {{--font-size: 16px;--}}
-            {{--margin-top: 10px;--}}
-        {{--}--}}
-        {{--.section5 .table{--}}
-            {{--/*border:1px solid red;*/--}}
-            {{--width:65%;--}}
-            {{--margin-top: 20px;--}}
-            {{--padding-left: 2%;--}}
-        {{--}--}}
-        {{--.section5 .table img{--}}
-            {{--width:100%;--}}
-            {{--height:250px;--}}
-        {{--}--}}
-        {{--.section5 .table .table_box1{--}}
-            {{--width:100%;--}}
-            {{--height: 248px;--}}
-            {{--font-size: 20px;--}}
-            {{--text-align: center;--}}
-            {{--line-height:248px;--}}
-            {{--color:#fff;--}}
-            {{--background-color: #000;--}}
-        {{--}--}}
-
-        {{--.section5 .table .table_box2{--}}
-            {{--width:100%;--}}
-            {{--height:248px;--}}
-            {{--font-size: 20px;--}}
-            {{--text-align: center;--}}
-            {{--line-height:248px;--}}
-            {{--color:#8a6d3b;--}}
-            {{--background-color: #F7F7F7;--}}
-        {{--}--}}
-        {{--.section6 .section6_title{--}}
-            {{--font-size: 25px;--}}
-            {{--margin-bottom: 10px;--}}
-            {{--color: #8a6d3b;--}}
-        {{--}--}}
-        {{--.section6 .table{--}}
-            {{--/*border:1px solid red;*/--}}
-            {{--width:65%;--}}
-            {{--margin-top: 20px;--}}
-            {{--padding-left: 2%;--}}
-        {{--}--}}
-        {{--.section6 .table .table_box{--}}
-            {{--width:380px;--}}
-            {{--height: 280px;--}}
-            {{--/*border:1px solid red;*/--}}
-        {{--}--}}
-        {{--.section6 .table .table_box img{--}}
-            {{--width:92%;--}}
-            {{--height: 260px;--}}
-        {{--}--}}
-        {{--@media screen and (max-width:768px) {--}}
-            {{--.active_a {--}}
-                {{--margin-left: 0px;--}}
-                {{--width: 100%;--}}
-                {{--/*padding-left: 20px;*/--}}
-                {{--text-align: left;--}}
-                {{--/* height:200px !important; */--}}
-            {{--}--}}
-
-            {{--.header {--}}
-                {{--width: 100%;--}}
-                {{--height: 180px;--}}
-            {{--}--}}
-            {{--.section2 .section2_title{--}}
-                {{--font-size: 10px;--}}
-                {{--width:50%;--}}
-                {{--height: 50px;--}}
-                {{--line-height: 50px;--}}
-                {{--/*border:1px solid red;*/--}}
-            {{--}--}}
-            {{--.section2 .section2_img{--}}
-                {{--width:20%;--}}
-                {{--height: auto;--}}
-            {{--}--}}
-            {{--.section2 .section2_content{--}}
-                {{--width:100%;--}}
-                {{--height: 300px;--}}
-                {{--/*border:1px solid red;*/--}}
-                {{--font-size: 8px;--}}
-            {{--}--}}
-            {{--.section3{--}}
-                {{--width:100%;--}}
-                {{--height: 200px;--}}
-                {{--position:relative;--}}
-            {{--}--}}
-            {{--.section3 .section3_main{--}}
-                {{--color:#fff;--}}
-                {{--width:40%;--}}
-                {{--height: 200px;--}}
-                {{--position:absolute;--}}
-                {{--top:10%;--}}
-                {{--right:10%;--}}
-            {{--}--}}
-            {{--.section3 .section3_main div:nth-of-type(1){--}}
-                {{--width:100%;--}}
-                {{--height: 20px;--}}
-                {{--line-height: 20px;--}}
-                {{--font-size: 12px;--}}
-                {{--/*border:1px solid red;*/--}}
-            {{--}--}}
-            {{--.section3 .section3_main div:nth-of-type(2){--}}
-                {{--width:100%;--}}
-                {{--height: 100px;--}}
-                {{--font-size: 8px;--}}
-                {{--/*border:1px solid red;*/--}}
-                {{--margin-top: 10px;--}}
-            {{--}--}}
-            {{--.section3 .section3_main div:nth-of-type(3){--}}
-                {{--width:68%;--}}
-                {{--height: 20px;--}}
-                {{--font-size: 10px;--}}
-                {{--/*border:1px solid red;*/--}}
-                {{--margin-top: 10px;--}}
-            {{--}--}}
-            {{--.section4{--}}
-                {{--width:100%;--}}
-                {{--height: 600px;--}}
-                {{--background-color: #F7F7F7;--}}
-                {{--margin-top: 20px;--}}
-            {{--}--}}
-            {{--.section4 .section4_title{--}}
-                {{--font-size: 18px;--}}
-                {{--color: #8a6d3b;--}}
-                {{--padding-top: 10px;--}}
-                {{--padding-bottom: 10px;--}}
-            {{--}--}}
-            {{--.section4 .section4_top{--}}
-                {{--width:72%;--}}
-                {{--height: 200px;--}}
-                {{--margin-top: 30px;--}}
-                {{--position: relative;--}}
-            {{--}--}}
-            {{--.section4 .section4_top .top_img{--}}
-                {{--position:absolute;--}}
-                {{--top:0;--}}
-                {{--left: 0;--}}
-                {{--width:68%;--}}
-                {{--height: 200px;--}}
-            {{--}--}}
-            {{--.section4 .section4_top .top_right{--}}
-                {{--color:#fff;--}}
-                {{--width:28%;--}}
-                {{--height: 210px;--}}
-                {{--font-size:9px;--}}
-                {{--position:absolute;--}}
-                {{--/*border:1px solid red;*/--}}
-                {{--top:20%;--}}
-                {{--right: 2%;--}}
-            {{--}--}}
-            {{--.section4 .section4_bottom{--}}
-                {{--width:72%;--}}
-                {{--height: 200px;--}}
-                {{--margin-top: 30px;--}}
-                {{--position: relative;--}}
-            {{--}--}}
-            {{--.section4 .section4_bottom .bottom_img{--}}
-                {{--position:absolute;--}}
-                {{--top:0;--}}
-                {{--left: 0;--}}
-                {{--width:68%;--}}
-                {{--height: 200px;--}}
-            {{--}--}}
-            {{--.section4 .section4_bottom .bottom_right{--}}
-                {{--color:#fff;--}}
-                {{--width:28%;--}}
-                {{--height: 210px;--}}
-                {{--font-size: 9px;--}}
-                {{--position:absolute;--}}
-                {{--top:20%;--}}
-                {{--right: 2%;--}}
-            {{--}--}}
-            {{--.section5{--}}
-                {{--width:100%;--}}
-                {{--height: 300px;--}}
-                {{--margin-top: 20px;--}}
-                {{--/*border:1px solid red;*/--}}
-            {{--}--}}
-            {{--.section5 .section5_title{--}}
-                {{--font-size: 22px;--}}
-                {{--color: #8a6d3b;--}}
-                {{--margin-top: 10px;--}}
-                {{--margin-bottom: 10px;--}}
-            {{--}--}}
-            {{--.section5 .section5_word{--}}
-                {{--font-size: 10px;--}}
-                {{--margin-top: 10px;--}}
-            {{--}--}}
-            {{--.section5 .table{--}}
-                {{--/*border:1px solid red;*/--}}
-                {{--width:98%;--}}
-                {{--margin-top: 20px;--}}
-            {{--}--}}
-            {{--.section5 .table img{--}}
-                {{--width:80px;--}}
-                {{--height:80px;--}}
-            {{--}--}}
-            {{--.section5 .table .table_box1{--}}
-                {{--width:80px;--}}
-                {{--height: 80px;--}}
-                {{--font-size: 8px;--}}
-                {{--text-align: center;--}}
-                {{--line-height: 80px;--}}
-                {{--color:#fff;--}}
-                {{--background-color: #000;--}}
-            {{--}--}}
-            {{--.section5 .table .table_box2{--}}
-                {{--width:80px;--}}
-                {{--height:80px;--}}
-                {{--font-size: 8px;--}}
-                {{--text-align: center;--}}
-                {{--line-height: 80px;--}}
-                {{--color:#8a6d3b;--}}
-                {{--background-color: #F7F7F7;--}}
-            {{--}--}}
-            {{--.section6 .section6_title{--}}
-                {{--font-size: 25px;--}}
-                {{--margin-bottom: 10px;--}}
-                {{--color: #8a6d3b;--}}
-            {{--}--}}
-            {{--.section6{--}}
-                {{--/*border:1px solid red;*/--}}
-                {{--width:100%;--}}
-                {{--height: auto;--}}
-            {{--}--}}
-            {{--.section6 .table{--}}
-                {{--/*border:1px solid red;*/--}}
-                {{--width:90%;--}}
-                {{--margin-top: 30px;--}}
-            {{--}--}}
-            {{--.section6 .table .table_box{--}}
-                {{--width:100px;--}}
-                {{--height: 100px;--}}
-                {{--/*border:1px solid red;*/--}}
-            {{--}--}}
-            {{--.section6 .table .table_box img{--}}
-                {{--width:95%;--}}
-                {{--height: 90px;--}}
-                {{--/*border:1px solid red;*/--}}
-            {{--}--}}
-        {{--}--}}
-    {{--</style>--}}
     <style>
         .section2 .section2_title{
             font-size: 25px;
@@ -464,11 +44,11 @@
         }
         .section3 .section3_main{
             color:#fff;
-            width:30%;
+            width:50%;
             height: 300px;
             position:absolute;
             top:10%;
-            right:18%;
+            right:5%;
         }
         .section3 .section3_main div:nth-of-type(1){
             width:100%;
@@ -868,9 +448,9 @@
         <img class="img-responsive center-block" src="../../../../images/frontend/line5.png">
     </div>
     <div class="section2_content center-block">
-        <div>{{$data[0]["word"][1]}}</div>
-        <div>{{$data[0]["word"][2]}}</div>
-        <div>{{$data[0]["word"][3]}}</div>
+        <div>{!! $data[0]["word"][1] !!}</div>
+        {{--<div>{!!$data[0]["word"][2]!!}</div>--}}
+        {{--<div>{!!$data[0]["word"][3]!!}</div>--}}
            </div>
 </div>
 <!--section2 end-->
@@ -879,9 +459,9 @@
     {{--<div class="section3" style="background: url('../../../../images/frontend/e2.jpg');background-size: 100% 100%;">--}}
     <div class="section3" style="background: url('{{URL::asset($data[0]["img"][1])}}');background-size: 100% 100%;">
         <div class="section3_main">
+            <div>{{$data[0]["word"][2]}}</div>
+            <div>{!! $data[0]["word"][3] !!}</div>
             <div>{{$data[0]["word"][4]}}</div>
-            <div>{{$data[0]["word"][5]}}</div>
-            <div>{{$data[0]["word"][6]}}</div>
         </div>
     </div>
 
@@ -901,7 +481,7 @@
                 <img class="img-responsive center-block top_img" src="{{$data[1]["img"][1]}}">
             </div>
             <div class="top_right">
-                {{$data[1]["word"][1]}}
+                {!! $data[1]["word"][1] !!}
             </div>
         </div>
         <div class="section4_bottom center-block" style="background: url('{{URL::asset($data[1]["img"][2])}}');background-size: 100% 100%">
@@ -910,7 +490,7 @@
                 <img class="img-responsive center-block bottom_img" src="{{$data[1]["img"][3]}}">
             </div>
             <div class="bottom_right">
-                {{$data[1]["word"][2]}}
+                {!! $data[1]["word"][2] !!}
             </div>
         </div>
     </div>

@@ -222,7 +222,7 @@
     }
 
 </script>
-<script src="/js/public.js" type="text/javascript"></script>
+{{--<script src="/js/public.js" type="text/javascript"></script>--}}
 @php
     use App\Models\Article;
     use App\Models\Category;

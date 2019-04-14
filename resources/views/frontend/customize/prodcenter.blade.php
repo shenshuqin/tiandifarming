@@ -703,35 +703,41 @@
                 <span class="left_word">当前位置:直销头条网>解密直销</span>
             </div>
             <div class="section2_right col-md-9 col-sm-9">
-                <div><a href="/prodcenter/1">{{$data[1]["word"][0]}}</a></div>
-                <div><a href="/prodcenter/2">{{$data[1]["word"][1]}}</a></div>
+                <div><a href="/prodcenter/1">{{$data[0]["word"][0]}}</a></div>
+                <div><a href="/prodcenter/2">{{$data[0]["word"][1]}}</a></div>
             </div>
         </div>
     </div>
     <div class="section_m ">
-        <div class="m_left"><a>{{$data[1]["word"][0]}}</a></div>
-        <div class="m_right"><a>{{$data[1]["word"][1]}}</a></div>
+        <div class="m_left"><a>{{$data[0]["word"][0]}}</a></div>
+        <div class="m_right"><a>{{$data[0]["word"][1]}}</a></div>
     </div>
 </div>
 <!--section2 end-->
 <!--section3 start-->
 <div class="container-fluid ">
-    <div class="section3 row center-block " >
-        @php
-        $j=2;$i=0;
-        @endphp
-        @foreach($data[1]["img"] as $img)
-            <div class="produce">
-                {{--<img src="../../../../images/frontend/produce.png">--}}
-                <a href="{{$data[1]["link"][$i++]}}"><img src="{{$img}}"></a>
-                <div class="produce_word">
-                    <p>{{$data[1]["word"][$j++]}}</p>
-                    <p><span>{{$data[1]["word"][$j++]}}</span><span class="jg">{{$data[1]["word"][$j++]}}</span></p>
-                </div>
-            </div>
-        @endforeach
+    <div class="section3 row center-block " id="product_list">
+        {{--@foreach($data[2][0]["img"] as $img)--}}
+            {{--<div class="produce">--}}
+                {{--<a href="{{$data[2][0]["link"][$i++]}}"><img src="{{$img}}"></a>--}}
+                {{--<div class="produce_word">--}}
+                    {{--<p>{{$data[2][0]["word"][$j++]}}</p>--}}
+                    {{--<p><span>{{$data[2][0]["word"][$j++]}}</span><span class="jg">{{$data[2][0]["word"][$j++]}}</span></p>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--@endforeach--}}
     </div>
 </div>
+<div class="container-fluid">
+    <div class="section4 center-block">
+        <nav aria-label="Page navigation">
+            <ul class="pagination" id="pg_bt">
+
+            </ul>
+        </nav>
+    </div>
+</div>
+
 <!--section3 end-->
 
 {{--导入尾部--}}
@@ -755,13 +761,11 @@
         if(width<=768){
             pageDiv.style.display="none";
             contactDiv.style.display = "none";
-            // console.log(word[0])
             logo.style.display="block";
             $(".header").css("display","none");
             $(".section1").css("display","none");
             $(".section2").css("display","none");
             $(".section_m").css("display","block");
-            console.log(cWidth)
 
         }else{
             pageDiv.style.display="block";
@@ -770,5 +774,99 @@
     }
 </script>
 <script src="../../../../js/myheader.js"></script>
+<script>
+    $(document).ready(function() {
+        pageload();//加载初始页(第一页)
+    });
+
+    function pageload(){//加载初始页(第一页)
+        var limit = 9;//默认每页显示9个商品
+        var dev_width = document.documentElement.clientWidth;//获取设备宽度
+        if (dev_width<=768){//尺寸小于768 显示8个商品
+            limit = 8;
+        }
+        $.ajax({url:"/data/product?page=1&limit="+limit,
+            success:function(data){
+                refreshGoods(data);
+                bindPageButton();
+        }});
+    }
+
+    function getPage(page){//加载指定页面
+        var limit = 9;//默认每页显示9个商品
+        var dev_width = document.documentElement.clientWidth;//获取设备宽度
+        if (dev_width<=768){//尺寸小于768 显示8个商品
+            limit = 8;
+        }
+        if(page<1||page>pagecount){
+            console.log("页码不正确");
+            return false;
+        }
+        $.ajax({url:"/data/product?cur=1&page="+page+"&limit="+limit,
+            success:function(data){
+                refreshGoods(data);//响应成功后刷新商品信息
+                bindPageButton();//绑定按钮事件
+            }});
+    }
+    function refreshGoods(data){
+        window.pagecount=data["msg"]["pagecount"];
+        window.curpage=data["msg"]["curpage"];
+        $("#product_list")[0].innerHTML = "";//清空商品信息
+        for(var i=0;i<data["img"].length;i++){
+            $("#product_list")[0].innerHTML +=
+                "<div class='produce'>" +
+                "<a href="+ data['link'][i]+"><img src="+data['img'][i]+"></a>"+
+                "<div class='produce_word'>"+
+                "<p>"+data['word'][4*i]+"</p>"+
+                "<p>" +
+                "<span>"+data['word'][4*i+1]+"</span>" +
+                "<span class='jg'>"+data['word'][4*i+2]+"</span>" +
+                "</p>" +
+                "</div>" +
+                "</div>";
+        }
+        $("#pg_bt")[0].innerHTML ="";//清空分页按钮
+        $("#pg_bt")[0].innerHTML +=
+            "<li>" +
+            "<a id='prev' aria-label='Previous'>" +
+            "<span aria-hidden='true'>&laquo;</span>" +
+            "</a>"+
+            "</li>";
+        for(var j=1;j<=pagecount;j++){
+            if(curpage == j){
+                $("#pg_bt")[0].innerHTML +=
+                    "<li class='active'><a id='page" + j + "'>" + j + "</a></li>";
+            }
+            else{
+                $("#pg_bt")[0].innerHTML +=
+                    "<li><a id='page" + j + "'>" + j + "</a></li>";
+            }
+
+        }
+        $("#pg_bt")[0].innerHTML +=
+            "<li>" +
+            "     <a id='next' aria-label='Next'>" +
+            "           <span aria-hidden='true'>&raquo;</span>" +
+            "     </a>" +
+            "</li>";
+    }
+
+    function bindPageButton(){
+        $('#prev').bind("click", function(){
+            var page = curpage<=1? 1 : curpage-1;
+            getPage(page);
+        });
+        $('#next').bind("click", function(){
+            var page = curpage>=pagecount? pagecount : curpage+1;
+            getPage(page);
+        });
+        $("a[id^='page']").bind("click", function(){
+            var bt_id =$(this).attr('id');//获取当前按钮的id
+            var page = bt_id.replace(/[^0-9]/ig,"");
+            getPage(page);
+        });
+    }
+
+</script>
 </body>
 </html>

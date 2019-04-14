@@ -24,42 +24,34 @@ class ProduceController extends Controller
         $data[0]=MyLibs::contentHandlers(Article::getContent("页面3区域0"));
         $page = $page == 2? 2:1;
         $data[1]=MyLibs::contentHandlers(Article::getContent("页面3区域".$page));
-//        if($page==2){
-//            $data[1]=MyLibs::contentHandlers(Article::getContent("页面3区域2"));
-//        }
-//        else{
-//            $data[1]=self::contentHandler(Article::getContent("页面3区域1"));
-//        }
-//        dump($page);
-//        dump($data);
-        return laravel_frontend_view('prodcenter', ['data' => $data]);
+        $data[2][0]=MyLibs::contentHandlers(Article::getContent("小奢品牌"));
+        return laravel_frontend_view('prodcenter', compact('data'));
     }
 
-    public function contentHandler($str){
-        //首先获取图片链接
-        preg_match_all("/storage.+?(\.gif|\.jpeg|\.png|\.jpg|\.bmp)/",$str,$img);
-        $str = strip_tags($str);
-        $word=explode("==========", $str);
-        if(preg_match_all("/文章标题\[(.+?)\]/",$str,$title)){
-            foreach($title[1] as $title){
-                if(!empty($title)){
-                    $links[]="article/show/2/2/".Article::titleToId($title);
-                }
-                else{
-                    $links[]="#";
-                }
-            }
+    public function product(Request $request){
+        $product = MyLibs::contentHandlers(Article::getContent("小奢品牌"));//从区块里获取全部商品信息
+        $pro_count = count($product["img"]);//计算商品条数
+        $limit = $request->limit;
+        $page_index = $request->page -1;
+        if($limit<1||$limit>$pro_count){
+            return false;
         }
-        else{
-            preg_match_all("/链接\[(.+?)\]/",$str,$link);
-            $links=$link[1];
+        $page_count = ceil($pro_count/$limit);
+        if($page_index<0||$page_index>$page_count-1){
+            return false;
         }
-        return [
-            "img"=>$img[0],
-            "word"=>array_values(array_filter($word)),
-            "link"=>( $links= isset($links) ? $links:[] )
-        ];
+
+        $start = $limit*$page_index;
+        $data["img"] = array_slice($product["img"],$start,$limit);
+        $data["link"] = array_slice($product["link"],$start,$limit);
+        $data["word"] = array_slice($product["word"],$start*4,4*$limit);
+        $data["msg"]["pagecount"] = $page_count;
+        $data["msg"]["curpage"] = $page_index + 1;
+        return $data;
     }
+
+
+
 
 
 }

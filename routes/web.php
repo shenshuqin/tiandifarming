@@ -38,6 +38,7 @@ Route::group([ 'middleware' => ['laracms.frontend'], ], function () {
     Route::get('/news','NewsController@index')->name('news');
     # 产品中心页面
     Route::get('/prodcenter/{page}', 'ProduceController@index')->name('produce_index');
+    Route::get('/data/product', 'ProduceController@product');
     #茶油文化页
     Route::get('/teaoillect','TeaoilController@index')->name('teaoil');
     #联系我们页面

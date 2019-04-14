@@ -364,110 +364,67 @@
 @php
     use App\Models\Article;
     use App\Models\Category;
-    function contentHandler($str){
-            //首先获取图片链接
-            preg_match_all("/storage.+?(\.gif|\.jpeg|\.png|\.jpg|\.bmp)/",$str,$img);
-            $str = strip_tags($str);
-            $word=explode("==========", $str);
-            if(preg_match_all("/文章标题\[(.+?)\]/",$str,$title)){
-                foreach($title[1] as $title){
-                    if(!empty($title)){
-                        $links[]="article/show/2/2/".Article::titleToId($title);
-                    }
-                    else{
-                        $links[]="#";
-                    }
-                }
-            }
-            else{
-                preg_match_all("/链接\[(.+?)\]/",$str,$link);
-                $links=$link[1];
-            }
-            return [
-                "img"=>$img[0],
-                "word"=>array_values(array_filter($word)),
-                "link"=>( $links= isset($links) ? $links:[] )
-            ];
-    }
-    $footer[0]=contentHandler(Article::getContent("页面模版尾部"));
+    use App\Common\MyLibs;
+    use App\Models\SiteMessage;
+    $site_settings = SiteMessage::getDetails();
+    $footer[0]=MyLibs::contentHandlers(Article::getContent("页面模版尾部"));
 @endphp
 
 <div class="container-fluid section10 col-md-12" style="background: url('{{URL::asset("images/frontend/footer.jpg")}}')">
     <div class="row">
         <div class="text-center">
             <div class="page col-md-4" id="pageHide">
-                <li class="page_a"><a href="{{$footer[0]["link"][0]}}">{{$footer[0]["word"][0]}}</a></li>
+                <li class="page_a"><a href="/">首页</a></li>
                 <ul class="list-unstyled page_main">
-                    <li><a href="{{$footer[0]["link"][1]}}">{{$footer[0]["word"][1]}}</a></li>
-                    <li ><a href="{{$footer[0]["link"][2]}}">{{$footer[0]["word"][2]}}</a></li>
-                    <li ><a href="{{$footer[0]["link"][3]}}">{{$footer[0]["word"][3]}}</a></li>
-                    <li><a href="{{$footer[0]["link"][4]}}">{{$footer[0]["word"][4]}}</a></li>
-                    <li ><a href="{{$footer[0]["link"][5]}}">{{$footer[0]["word"][5]}}</a></li>
-                    <li ><a href="{{$footer[0]["link"][6]}}">{{$footer[0]["word"][6]}}</a></li>
+                    <li><a href="/compblect">企业文化</a></li>
+                    <li ><a href="/prodcenter/1">产品中心</a></li>
+                    <li ><a href="/news">新闻资讯</a></li>
+                    <li><a href="/teaoillect">油茶文化</a></li>
+                    <li ><a href="/shopaccess">购买渠道</a></li>
+                    <li ><a href="/contactus">联系我们</a></li>
                 </ul>
             </div>
             <div class="store col-md-2 center-block ">
-                <div class="store_tile">{{$footer[0]["word"][7]}}</div>
+                <div class="store_tile">{{$footer[0]["word"][0]}}</div>
                 <div class="taobao ">
                     <img src="{{URL::asset('images/frontend/taobao.png')}}">
-                    <a href="{{$footer[0]["link"][7]}}">{{$footer[0]["word"][8]}}</a>
+                    <a href="{{$footer[0]["link"][0]}}">{{$footer[0]["word"][1]}}</a>
                 </div>
                 <div class="pinduoduo">
                     <img src="{{URL::asset('images/frontend/pinduoduo.png')}}">
-                    <a href="{{$footer[0]["link"][8]}}">{{$footer[0]["word"][9]}}</a>
+                    <a href="{{$footer[0]["link"][1]}}">{{$footer[0]["word"][2]}}</a>
                 </div>
                 <div class="weixin ">
                     <img src="{{URL::asset('images/frontend/weixin.png')}}">
-                    <a href="{{$footer[0]["link"][9]}}">{{$footer[0]["word"][10]}}</a>
+                    <a href="{{$footer[0]["link"][2]}}">{{$footer[0]["word"][3]}}</a>
                 </div>
             </div>
-            {{--<div class="contact col-md-5" id="contactHide">--}}
-                {{--<p>{{$footer[0]["word"][11]}}</p>--}}
-                {{--<ul class="list-unstyled" >--}}
-                    {{--<li>--}}
-                        {{--<ul class="list-inline text-center" style="padding-top: 20px">--}}
-                            {{--<li><img src="{{URL::asset('images/frontend/tel.png')}}"></li>--}}
-                            {{--<li><ul class="list-unstyled">--}}
-                                    {{--<li>{{$footer[0]["word"][12]}}</li>--}}
-                                    {{--<li><span style="font-size: 8px">{{$footer[0]["word"][13]}}</span></li></ul></li>--}}
-                        {{--</ul>--}}
-                    {{--<li>--}}
-                {{--</ul>--}}
-                {{--<ul class="list-unstyled">--}}
-                    {{--<li>--}}
-                        {{--<ul class="list-inline">--}}
-                            {{--<li><img src="{{URL::asset('images/frontend/phone.png')}}"></li>--}}
-                            {{--<li><ul class="list-unstyled">--}}
-                                    {{--<li>{{$footer[0]["word"][14]}}</li>--}}
-                                    {{--<li><span style="font-size: 8px">{{$footer[0]["word"][15]}}</span></li></ul></li>--}}
-                        {{--</ul>--}}
-                    {{--<li>--}}
-                {{--</ul>--}}
-            {{--</div>--}}
             <div class="contact col-md-5" id="contactHide">
-                <p class="contact_p">{{$footer[0]["word"][11]}}</p>
+                <p class="contact_p">{{$footer[0]["word"][4]}}</p>
                 <div class="contact_box">
                     <div class="box_img">
                         <img src="{{URL::asset('images/frontend/tel.png')}}">
                     </div>
                     <div class="box_main">
-                        <div>{{$footer[0]["word"][12]}}</div>
-                        <div>{{$footer[0]["word"][13]}}</div>
+                        {{--<div>{{$footer[0]["word"][12]}}</div>--}}
+                        <div>{{$site_settings["phone"]}}</div>
+                        <div>{{$footer[0]["word"][5]}}</div>
                     </div>
                 </div>
                 <div class="contact_box">
                     <div class="box_img">
-                        <img src="{{URL::asset('images/frontend/phone.png')}}">
+                        <a href="tel:{{$site_settings["phone"]}}"><img src="{{URL::asset('images/frontend/phone.png')}}"></a>
                     </div>
                     <div class="box_main">
-                        <div>{{$footer[0]["word"][14]}}</div>
-                        <div>{{$footer[0]["word"][15]}}</div>
+                        <div>{{$footer[0]["word"][6]}}</div>
+                        <div>{{$footer[0]["word"][7]}}</div>
                     </div>
                 </div>
         </div>
         <div class="footer1 col-md-12 col-xs-12 text-center">
-            <p>{{$footer[0]["word"][16]}}</p>
-            <p>{{$footer[0]["word"][17]}}</p>
+            <p>{{$site_settings["name"]."版权所有2019 | 服务热线:".$site_settings["phone"]}}</p>
+            <p>{{"地址:".$site_settings["address"]." | 邮箱:".$site_settings["email"]}}</p>
         </div>
     </div>
+</div>
 </div>

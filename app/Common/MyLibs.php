@@ -15,9 +15,11 @@ class MyLibs{
                 $img[1][$i] = URL::asset($ii[0][0]);
             }
         }
-//        dump($img[1]);
         $str = strip_tags($str);
+        $str=str_ireplace("\\n","<br>",$str);
+        $str=str_ireplace("\r\n","",$str);
         $word=explode("==========", $str);
+
         if(preg_match_all("/文章标题\[(.+?)\]/",$str,$title)){
             foreach($title[1] as $title){
                 if(!empty($title)){
@@ -32,10 +34,15 @@ class MyLibs{
             preg_match_all("/链接\[(.+?)\]/",$str,$link);
             $links=$link[1];
         }
-        return [
+        $data = [
             "img"=>$img[1],
             "word"=>array_values(array_filter($word)),
             "link"=>( $links= isset($links) ? $links:[] )
         ];
+//        dump($data);
+        return $data;
+    }
+    function delempty($v) {
+        return $v != ""? true : false;
     }
 }

@@ -1201,7 +1201,10 @@
 <body>
 {{--导入头部--}}
 @include('frontend.module.myheader')
-
+@php
+    use App\Models\SiteMessage;
+    $site_settings = SiteMessage::getDetails();
+@endphp
 <div class="container-fluid">
     <!--附加-->
     <div id="NavTop" style="display: block">
@@ -1212,15 +1215,15 @@
                 <a href="javascript:void(0);"
                    title="电话" data-container="body"
                    data-toggle="popover" data-placement="left"
-                   data-content=" 服务热线:400-000-5252">电话</a>
+                   data-content=" 服务热线:{{$site_settings["phone"]}}">电话</a>
             </div>
             <div class="Z">
                 {{--<!--<div><img style="width:20px;height: 16px" src="{{URL::asset('images/frontend/咨询.png')}}"></div>-->--}}
                 <div><img style="width:36px;height:32px;" src="{{URL::asset('images/frontend/2.jpg')}}"></div>
-                <a href="javascript:void(0);"
+                <a href="tel:{{$site_settings["phone"]}}"
                    title="咨询" data-container="body"
                    data-toggle="popover" data-placement="left"
-                   data-content=" 湖南省常德市鼎城区周家电镇">咨询</a>
+                   data-content="湖南省常德市鼎城区周家电镇">咨询</a>
             </div>
             <div class="W">
                 {{--<!--<div><img style="width:20px;height: 16px" src="{{URL::asset('images/frontend/微信.png')}}"></div>-->--}}
@@ -1233,7 +1236,8 @@
             <div class="D" id="topArrow">
                 {{--<!--<div><img style="width:20px;height: 16px" src="{{URL::asset('images/frontend/顶部.png')}}"></div>-->--}}
                 <div><img style="width:36px;height:32px;" src="{{URL::asset('images/frontend/3.jpg')}}"></div>
-                <span title="Top" >顶部</span></div>
+                <span title="Top" >顶部</span>
+            </div>
         </div>
     </div>
 
@@ -1277,7 +1281,7 @@
             </a>
         </div>
         </div>
-        <!-- 轮播图结束-->
+        <!-- 轮播图结束-->section1_word word1_position
 
         <!-- 商城链接图标开始-->
         <div class="container-fluid secition1">
@@ -1419,7 +1423,7 @@
         </div>
         <div class="news_container row ">
             <div class="news1 col-md-3 col-sm-3 text-left">
-                <div><img class="news1_img" src="{{URL::asset('images/frontend/news1.png')}}"/></div>
+                <div><img class="news1_img" src="{{$data[5]["img"][0]}}"/></div>
                 <div class="news_title text-left"><p>{{$data[5]["word"][1]}}</p></div>
                 <div class="news_content"><p>{{$data[5]["word"][2]}}</p></div>
                 {{--<div><a href=""><img class="news_img" src="{{URL::asset('images/frontend/xiangqing.png')}}"/></a></div>--}}
@@ -1427,14 +1431,14 @@
             </div>
             <div class="news1 col-md-3 col-sm-3 text-left">
                 {{--<div><img class="news1_img" src="{{URL::asset('images/frontend/news2.png')}}"/></div>--}}
-                <div><img class="news1_img" src="{{$data[5]["img"][0]}}"/></div>
+                <div><img class="news1_img" src="{{$data[5]["img"][1]}}"/></div>
                 <div class="news_title"><p>{{$data[5]["word"][3]}}</p></div>
                 <div class="news_content"><p>{{$data[5]["word"][4]}}</p></div>
                 <div><a href="{{$data[5]["link"][1]}}"><img class="news_img" src="{{URL::asset('images/frontend/xiangqing.png')}}"/></a></div>
             </div>
             <div class="news1 col-md-3 col-sm-3 text-left">
                 {{--<div><img class="news1_img" src="{{URL::asset('images/frontend/news1.png')}}"/></div>--}}
-                <div><img class="news1_img" src="{{$data[5]["img"][1]}}"/></div>
+                <div><img class="news1_img" src="{{$data[5]["img"][2]}}"/></div>
                 <div class="news_title"><p>{{$data[5]["word"][5]}}</p></div>
                 <div class="news_content"><p>{{$data[5]["word"][6]}}</p></div>
                 {{--<div><a href=""><img class="news_img" src="{{URL::asset('images/frontend/xiangqing.png')}}"/></a></div>--}}
@@ -1443,7 +1447,7 @@
             <div class="news1 col-md-3 col-sm-3 text-left" id="show" style="display: none">
                 {{--<!--<div><img class="news1_img" src="{{URL::asset('images/frontend/news1.png')}}"/></div>-->--}}
                 {{--<div><img class="news1_img" src="{{URL::asset('images/frontend/news1.png')}}"/></div>--}}
-                <div><img class="news1_img" src="{{$data[5]["img"][2]}}"/></div>
+                <div><img class="news1_img" src="{{$data[5]["img"][3]}}"/></div>
                 <div class="news_title"><p>{{$data[5]["word"][7]}}</p></div>
                 <div class="news_content"><p>{{$data[5]["word"][8]}}</p></div>
                 {{--<div><a href=""><img class="news_img" src="{{URL::asset('images/frontend/xiangqing.png')}}"/></a></div>--}}
